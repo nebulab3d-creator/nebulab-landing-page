@@ -1,0 +1,144 @@
+---
+const services = [
+  {
+    icon: `<path d="M20 12v10H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/>
+           <path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/>
+           <path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/>`,
+    color: '#8446c2',
+    tag: 'POPULAR',
+    title: 'Regalos Personalizados',
+    desc: 'Detalles únicos para cumpleaños, aniversarios y fechas especiales. Llaveros, litofanías, figuras y más.',
+    img: '/images/llaveros/llavero-03.jpg',
+    imgAlt: 'Llaveros personalizados polaroid',
+  },
+  {
+    icon: `<rect x="2" y="7" width="20" height="14" rx="2"/>
+           <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/>
+           <line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>`,
+    color: '#5564ef',
+    tag: 'B2B',
+    title: 'Regalos Corporativos',
+    desc: 'Trofeos, reconocimientos, llaveros con logo y artículos de marca. Pedidos por volumen para empresas.',
+    img: '/images/regalos-corporativos/corporativo-01.jpg',
+    imgAlt: 'Regalos corporativos personalizados',
+  },
+  {
+    icon: `<path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3
+           m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547
+           A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531
+           c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>`,
+    color: '#027ac3',
+    tag: 'DECORACIÓN',
+    title: 'Lámparas Decorativas',
+    desc: 'Lámparas en 3D con diseños únicos que transforman cualquier espacio. Luz, arte y personalización en una sola pieza.',
+    img: '/images/lamparas/lampara-02.jpg',
+    imgAlt: 'Lámpara decorativa impresa en 3D',
+  },
+  {
+    icon: `<path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+           <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+           <line x1="12" y1="22.08" x2="12" y2="12"/>`,
+    color: '#a85b8a',
+    tag: 'ESPECIAL',
+    title: 'Coleccionables & Figuras',
+    desc: 'Miniaturas, avatares y figuras personalizadas con alta precisión. Desde tus personajes favoritos hasta tu propio rostro.',
+    img: '/images/coleccionables/coleccionable-02.jpg',
+    imgAlt: 'Figuras coleccionables impresas en 3D',
+  },
+  {
+    icon: `<path d="M12 2a10 10 0 0110 10c0 2-4 6-4 6H6s-4-4-4-6A10 10 0 0112 2z"/>
+           <path d="M12 12v4M10 16h4"/>`,
+    color: '#8446c2',
+    tag: 'HOGAR',
+    title: 'Macetas & Decoración',
+    desc: 'Macetas geométricas, organizadores y decoración moderna para el hogar. Funcional, bello y hecho a tu medida.',
+    img: '/images/macetas/maceta-01.jpg',
+    imgAlt: 'Macetas decorativas impresas en 3D',
+  },
+  {
+    icon: `<rect x="3" y="3" width="7" height="7" rx="1"/>
+           <rect x="14" y="3" width="7" height="7" rx="1"/>
+           <rect x="3" y="14" width="7" height="7" rx="1"/>
+           <rect x="5" y="5" width="3" height="3" fill="currentColor"/>
+           <rect x="16" y="5" width="3" height="3" fill="currentColor"/>
+           <rect x="5" y="16" width="3" height="3" fill="currentColor"/>
+           <path d="M14 14h3v3h-3zM17 17h3v3h-3zM14 20h3"/>`,
+    color: '#027ac3',
+    tag: 'RESTAURANTES',
+    title: 'Bases QR & Señalética',
+    desc: 'Porta-menús con código QR, decoración temática y señalización personalizada para restaurantes y negocios.',
+    img: '/images/B2B/b2b-01.jpg',
+    imgAlt: 'Bases QR personalizadas para restaurantes',
+  },
+];
+---
+
+<section id="servicios" class="py-24 px-6 relative overflow-hidden">
+
+  <!-- Background decoration -->
+  <div aria-hidden="true" class="absolute inset-0 bg-grid-light dark:bg-grid-dark opacity-40 pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto relative">
+
+    <div class="text-center mb-16 reveal">
+      <span class="badge mb-4 inline-block">Lo que hacemos</span>
+      <h2 class="font-makoto text-4xl md:text-5xl font-black mb-4 text-neb-ink dark:text-white">
+        NUESTROS SERVICIOS
+      </h2>
+      <div class="divider mx-auto mt-4"></div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {services.map((s, i) => (
+        <div class="card-service rounded-none pixel-corner p-0 reveal overflow-hidden group">
+          <!-- Product image -->
+          <div class="relative h-48 overflow-hidden">
+            <img
+              src={s.img}
+              alt={s.imgAlt}
+              loading="lazy"
+              decoding="async"
+              class="w-full h-full object-cover img-retro"
+            />
+            <!-- Retro overlay gradient -->
+            <div class="absolute inset-0 bg-gradient-to-t from-neb-ink/60 dark:from-neb-black/70 to-transparent"></div>
+            <!-- Tag -->
+            <span class="absolute top-3 right-3 font-mono text-[9px] tracking-[0.2em] font-bold
+                         bg-neb-black/70 dark:bg-neb-black/80 text-white px-2 py-1 rounded-sm border border-white/20">
+              {s.tag}
+            </span>
+          </div>
+
+          <!-- Content -->
+          <div class="p-6">
+            <div class="w-10 h-10 rounded-sm flex items-center justify-center mb-4"
+                 style={`background: ${s.color}20; border: 1px solid ${s.color}40;`}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                   stroke={s.color} stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                   aria-hidden="true" set:html={s.icon} />
+            </div>
+            <h3 class="text-base font-bold font-mono mb-2 text-neb-ink dark:text-white tracking-wide">{s.title}</h3>
+            <p class="text-neb-ink/55 dark:text-white/55 text-sm leading-relaxed">{s.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom CTA row -->
+    <div class="mt-12 text-center reveal">
+      <p class="font-mono text-sm text-neb-ink/50 dark:text-white/40 mb-4 tracking-wider">
+        ¿No ves lo que buscas? Cuéntanos tu idea →
+      </p>
+      <a href="https://wa.me/573232218586?text=Hola%20Nebulab%203D%2C%20tengo%20una%20idea%20especial"
+         target="_blank" rel="noopener"
+         class="btn-primary inline-flex items-center gap-2 text-white text-xs font-bold font-mono
+                px-6 py-3 rounded-sm tracking-widest uppercase pixel-corner">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        PEDIR COTIZACIÓN
+      </a>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,155 @@
+---
+const floatingImages = [
+  { src: '/images/llaveros/llavero-01.jpg',      alt: 'Llavero polaroid personalizado', cls: 'top-[8%]  right-[8%]  w-32 md:w-56 animate-float      shadow-neb-purple  rotate-3' },
+  { src: '/images/lamparas/lampara-01.jpg',       alt: 'Lámpara decorativa impresa en 3D', cls: 'top-[52%] right-[5%]  w-28 md:w-35 animate-float-slow  shadow-neb-blue   -rotate-2' },
+  { src: '/images/coleccionables/coleccionable-01.jpg', alt: 'Figura coleccionable 3D', cls: 'top-[12%] left-[7%]  w-28 md:w-32 animate-float      shadow-neb-purple  -rotate-3' },
+  { src: '/images/B2B/b2b-01.jpg',               alt: 'Producto Nebulab 3D', cls: 'top-[55%] left-[4%]  w-24 md:w-48 animate-float-slow  shadow-neb-mauve    rotate-2', id: 'hero-random-img' },
+];
+---
+
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden px-6 pt-20">
+
+  <!-- ── Cosmic BG (dark) ── -->
+  <div aria-hidden="true"
+       class="absolute inset-0 dark:block hidden pointer-events-none"
+       style="background: #0e0e0e;
+              background-image:
+                radial-gradient(ellipse 80% 50% at 50% -20%, rgba(132,70,194,0.38) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 40% at 80% 80%, rgba(85,100,239,0.22) 0%, transparent 55%);"></div>
+
+  <!-- ── Warm BG (light) ── -->
+  <div aria-hidden="true"
+       class="absolute inset-0 dark:hidden pointer-events-none"
+       style="background: #F9F6FF;
+              background-image:
+                radial-gradient(ellipse 70% 50% at 50% -10%, rgba(132,70,194,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 40% at 80% 80%, rgba(85,100,239,0.09) 0%, transparent 55%);"></div>
+
+  <!-- ── Grid overlay ── -->
+  <div aria-hidden="true" class="absolute inset-0 bg-grid-light dark:bg-grid-dark pointer-events-none opacity-60"></div>
+
+  <!-- ── Glow blobs (dark) ── -->
+  <div class="glow-purple absolute -top-20 -left-24 w-96 h-96 rounded-full opacity-50 pointer-events-none dark:opacity-60 opacity-0 dark:block hidden"></div>
+  <div class="glow-blue   absolute bottom-10 right-0   w-80 h-80 rounded-full opacity-40 pointer-events-none dark:block hidden"></div>
+
+  <!-- ── Stars (dark only) ── -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden dark:block hidden" id="stars-container" aria-hidden="true"></div>
+
+  <!-- ── Floating product images ── -->
+  {floatingImages.map(img => (
+    <div class={`absolute ${img.cls} pointer-events-none z-10 hidden lg:block`}>
+      <div class="relative">
+        <img src={img.src} alt={img.alt} loading="lazy" decoding="async"
+             id={img.id ?? undefined}
+             class="img-retro rounded-xl w-full shadow-2xl
+                    ring-1 ring-neb-purple/30 dark:ring-neb-purple/50
+                    object-cover aspect-square" />
+        <!-- Retro corner accent -->
+        <div class="absolute -top-1 -left-1 w-4 h-4 border-t-2 border-l-2 border-neb-purple opacity-70"></div>
+        <div class="absolute -bottom-1 -right-1 w-4 h-4 border-b-2 border-r-2 border-neb-blue opacity-70"></div>
+      </div>
+    </div>
+  ))}
+
+  <!-- ── Hero copy ── -->
+  <div class="relative z-10 max-w-3xl mx-auto text-center">
+
+    <div class="mb-5 flex items-center justify-center gap-2">
+      <span class="badge">Impresión 3D · Colombia</span>
+    </div>
+
+    <h1 class="font-makoto text-5xl md:text-7xl font-black leading-[1.05] tracking-tight mb-6
+               text-neb-ink dark:text-white animate-glitch">
+      SI LO PUEDES<br/>
+      <span class="text-gradient">IMAGINAR</span><br/>
+      LO PODEMOS CREAR
+    </h1>
+
+    <!-- Retro ticker line -->
+    <div class="my-5 flex items-center gap-3 justify-center overflow-hidden">
+      <div class="h-px flex-1 max-w-[80px] bg-gradient-to-r from-transparent to-neb-purple/50"></div>
+      <span class="font-mono text-[10px] tracking-[0.25em] uppercase text-neb-purple/70 dark:text-neb-purple/60">
+        Manizales &amp; Madrid, Cundinamarca
+      </span>
+      <div class="h-px flex-1 max-w-[80px] bg-gradient-to-l from-transparent to-neb-purple/50"></div>
+    </div>
+
+    <p class="text-neb-ink/65 dark:text-white/70 text-lg md:text-xl max-w-xl mx-auto mb-10 font-medium leading-relaxed">
+      Tu laboratorio de impresión 3D: regalos personalizados,
+      corporativos, lámparas, llaveros, macetas y mucho más.
+    </p>
+
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="https://wa.me/573232218586?text=Hola%20Nebulab%203D%2C%20quiero%20cotizar%20un%20proyecto"
+         target="_blank" rel="noopener"
+         class="btn-primary text-white font-bold font-mono px-8 py-4 rounded-sm text-sm
+                tracking-widest uppercase pixel-corner w-full sm:w-auto text-center">
+        COTIZAR POR WHATSAPP
+      </a>
+      <a href="#galeria"
+         class="btn-outline font-bold font-mono px-8 py-4 rounded-sm text-sm
+                tracking-widest uppercase w-full sm:w-auto text-center">
+        VER GALERÍA
+      </a>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="mt-16 flex justify-center">
+      <a href="#servicios" class="flex flex-col items-center gap-1 opacity-40 hover:opacity-70 transition-opacity">
+        <span class="font-mono text-[10px] tracking-[0.3em] uppercase text-neb-ink dark:text-white">scroll</span>
+        <svg width="16" height="24" viewBox="0 0 16 24" fill="none" class="animate-bounce" aria-hidden="true">
+          <path d="M8 0v20M2 14l6 6 6-6"
+                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+</section>
+
+<!-- ── Star generation script ── -->
+<script>
+  // ── Random floating product image ──
+  const randomPool = [
+    '/images/B2B/b2b-01.jpg','/images/B2B/b2b-02.jpg','/images/B2B/b2b-03.jpg',
+    '/images/B2B/b2b-04.jpg','/images/B2B/b2b-05.jpg','/images/B2B/b2b-06.jpg',
+    '/images/B2B/b2b-07.jpg','/images/B2B/b2b-08.jpg','/images/B2B/b2b-09.jpg',
+    '/images/B2B/b2b-10.jpg','/images/B2B/b2b-11.jpg','/images/B2B/b2b-12.jpg',
+    '/images/B2B/b2b-13.jpg','/images/B2B/b2b-14.jpg',
+    '/images/regalos-corporativos/corporativo-01.jpg','/images/regalos-corporativos/corporativo-02.jpg',
+    '/images/regalos-corporativos/corporativo-03.jpg','/images/regalos-corporativos/corporativo-04.jpg',
+    '/images/regalos-corporativos/corporativo-05.jpg','/images/regalos-corporativos/corporativo-06.jpg',
+    '/images/regalos-corporativos/corporativo-07.jpg','/images/regalos-corporativos/corporativo-08.jpg',
+    '/images/regalos-corporativos/corporativo-09.jpg',
+    '/images/temporadas/temporada-01.jpg','/images/temporadas/temporada-02.jpg',
+    '/images/temporadas/temporada-03.jpg','/images/temporadas/temporada-04.jpg',
+    '/images/temporadas/temporada-05.jpg','/images/temporadas/temporada-06.jpg',
+    '/images/temporadas/temporada-07.jpg','/images/temporadas/temporada-08.jpg',
+    '/images/temporadas/temporada-09.jpg','/images/temporadas/temporada-10.jpg',
+    '/images/temporadas/temporada-11.jpg','/images/temporadas/temporada-12.jpg',
+    '/images/temporadas/temporada-13.jpg','/images/temporadas/temporada-14.jpg',
+    '/images/macetas/maceta-01.jpg','/images/macetas/maceta-02.jpg',
+    '/images/macetas/maceta-03.jpg','/images/macetas/maceta-04.jpg',
+    '/images/macetas/maceta-05.jpg',
+  ];
+  const randomImg = document.getElementById('hero-random-img') as HTMLImageElement | null;
+  if (randomImg) {
+    randomImg.src = randomPool[Math.floor(Math.random() * randomPool.length)];
+  }
+
+  const container = document.getElementById('stars-container');
+  if (container) {
+    for (let i = 0; i < 80; i++) {
+      const s = document.createElement('div');
+      s.className = 'star';
+      s.style.cssText = `
+        left:${Math.random()*100}%;
+        top:${Math.random()*100}%;
+        --dur:${3+Math.random()*5}s;
+        --delay:${Math.random()*6}s;
+        --max-op:${0.3+Math.random()*0.6};
+      `;
+      container.appendChild(s);
+    }
+  }
+</script>

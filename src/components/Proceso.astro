@@ -1,0 +1,105 @@
+---
+const steps = [
+  {
+    num: '01',
+    color: '#8446c2',
+    bg: 'bg-neb-purple',
+    title: 'Comparte tu idea',
+    desc: 'Escríbenos por WhatsApp o Instagram con tu concepto, foto de referencia o descripción.',
+    img: '/images/avatars/avatar-03.jpg',
+  },
+  {
+    num: '02',
+    color: '#5564ef',
+    bg: 'bg-neb-blue',
+    title: 'Cotización gratis',
+    desc: 'Te enviamos precio, tiempo de entrega y opciones de materiales sin costo y sin compromiso.',
+    img: '/images/llaveros/llavero-05.jpg',
+  },
+  {
+    num: '03',
+    color: '#027ac3',
+    bg: 'bg-neb-cyan',
+    title: 'Imprimimos',
+    desc: 'Producimos tu pieza con alta precisión usando nuestras impresoras 3D de última generación.',
+    img: '/images/lamparas/lampara-04.jpg',
+  },
+  {
+    num: '04',
+    color: '#a85b8a',
+    bg: 'bg-neb-mauve',
+    title: 'Recibe tu pedido',
+    desc: 'Entregamos en Manizales y Madrid Cundinamarca, o enviamos a todo Colombia.',
+    img: '/images/regalos-corporativos/corporativo-05.jpg',
+  },
+];
+---
+
+<section class="py-24 px-6 relative overflow-hidden">
+
+  <!-- Glow -->
+  <div aria-hidden="true"
+       class="glow-blue absolute -bottom-24 -left-24 w-96 h-96 rounded-full opacity-15 dark:opacity-20 pointer-events-none"></div>
+
+  <div class="max-w-5xl mx-auto">
+
+    <div class="text-center mb-16 reveal">
+      <span class="badge mb-4 inline-block">Simple y rápido</span>
+      <h2 class="font-makoto text-4xl md:text-5xl font-black mb-4 text-neb-ink dark:text-white">
+        ¿CÓMO FUNCIONA?
+      </h2>
+      <div class="divider mx-auto mt-4"></div>
+    </div>
+
+    <!-- Connector (desktop) -->
+    <div class="relative">
+      <div class="hidden md:block absolute top-10 left-[12.5%] right-[12.5%] h-px
+                  bg-gradient-to-r from-neb-purple via-neb-blue to-neb-cyan opacity-25 pointer-events-none"></div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        {steps.map((step, i) => (
+          <div class="flex flex-col items-center text-center reveal" style={`transition-delay: ${i * 100}ms`}>
+            <!-- Step card with image background -->
+            <div class="relative w-20 h-20 z-10 mb-4 overflow-hidden rounded-sm group cursor-pointer"
+                 style={`box-shadow: 0 0 20px ${step.color}40`}>
+              <img
+                src={step.img}
+                alt={step.title}
+                loading="lazy"
+                class="w-full h-full object-cover brightness-50 group-hover:brightness-40 transition-all"
+              />
+              <div class={`absolute inset-0 ${step.bg} opacity-60`}></div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="font-makoto text-2xl font-black text-white">{step.num}</span>
+              </div>
+              <!-- Corners -->
+              <div class="absolute top-1 left-1 w-2.5 h-2.5 border-t-2 border-l-2 border-white/70"></div>
+              <div class="absolute bottom-1 right-1 w-2.5 h-2.5 border-b-2 border-r-2 border-white/70"></div>
+            </div>
+
+            <h4 class="font-bold font-mono text-sm mb-2 text-neb-ink dark:text-white tracking-wide">{step.title}</h4>
+            <p class="text-neb-ink/50 dark:text-white/50 text-xs leading-relaxed px-2">{step.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Terminal-style bottom -->
+    <div class="mt-16 border border-neb-purple/20 dark:border-neb-purple/25 rounded-sm p-5 font-mono text-xs reveal">
+      <div class="flex items-center gap-2 mb-3">
+        <div class="w-2.5 h-2.5 rounded-full bg-red-400/70"></div>
+        <div class="w-2.5 h-2.5 rounded-full bg-yellow-400/70"></div>
+        <div class="w-2.5 h-2.5 rounded-full bg-green-400/70"></div>
+        <span class="ml-2 text-neb-ink/30 dark:text-white/25 tracking-wider">nebulab-3d ~ terminal</span>
+      </div>
+      <div class="space-y-1 text-neb-ink/50 dark:text-white/45">
+        <p><span class="text-neb-purple">$</span> nebulab cotizar --tipo cualquier-idea</p>
+        <p class="text-green-500 dark:text-green-400">✓ Presupuesto enviado en minutos</p>
+        <p><span class="text-neb-blue">$</span> nebulab producir --calidad premium</p>
+        <p class="text-green-500 dark:text-green-400">✓ Pieza lista para entrega</p>
+        <p><span class="text-neb-purple">$</span> <span class="animate-pulse">▌</span></p>
+      </div>
+    </div>
+
+  </div>
+</section>

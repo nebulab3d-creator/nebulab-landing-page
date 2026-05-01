@@ -1,0 +1,94 @@
+---
+const valores = [
+  {
+    icon: `<path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3
+           m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547
+           A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531
+           c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>`,
+    color: '#8446c2',
+    colorClass: 'text-neb-purple dark:text-purple-400',
+    bg: 'bg-neb-purple/8 dark:bg-neb-purple/15',
+    border: 'border-neb-purple/20 dark:border-neb-purple/30',
+    label: '01',
+    name: 'INNOVADOR',
+    desc: 'Creatividad aplicada: llevamos la impresión 3D al siguiente nivel con soluciones originales, funcionales y sorprendentes.',
+    img: '/images/coleccionables/coleccionable-03.jpg',
+  },
+  {
+    icon: `<path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>`,
+    color: '#5564ef',
+    colorClass: 'text-neb-blue dark:text-blue-400',
+    bg: 'bg-neb-blue/8 dark:bg-neb-blue/15',
+    border: 'border-neb-blue/20 dark:border-neb-blue/30',
+    label: '02',
+    name: 'CERCANO',
+    desc: 'Comunicación directa, simple y empática. Cada cliente es parte del proceso desde el inicio hasta la entrega.',
+    img: '/images/avatars/avatar-02.jpg',
+  },
+  {
+    icon: `<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+           <polyline points="9 12 11 14 15 10"/>`,
+    color: '#027ac3',
+    colorClass: 'text-neb-cyan dark:text-sky-400',
+    bg: 'bg-neb-cyan/8 dark:bg-neb-cyan/15',
+    border: 'border-neb-cyan/20 dark:border-neb-cyan/30',
+    label: '03',
+    name: 'CONFIABLE',
+    desc: 'Calidad, cumplimiento y compromiso. Nuestro trabajo habla por sí solo y nuestros clientes siempre vuelven.',
+    img: '/images/B2B/b2b-09.jpg',
+  },
+];
+---
+
+<section id="valores" class="py-24 px-6 relative overflow-hidden">
+
+  <!-- BG grid -->
+  <div aria-hidden="true" class="absolute inset-0 bg-grid-light dark:bg-grid-dark opacity-30 pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto relative">
+
+    <div class="text-center mb-16 reveal">
+      <span class="badge mb-4 inline-block">ADN de marca</span>
+      <h2 class="font-makoto text-4xl md:text-5xl font-black mb-4 text-neb-ink dark:text-white">
+        NUESTROS VALORES
+      </h2>
+      <div class="divider mx-auto mt-4"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {valores.map((v) => (
+        <div class={`card-value rounded-none pixel-corner overflow-hidden reveal`}>
+          <!-- Value image -->
+          <div class="h-44 overflow-hidden relative">
+            <img
+              src={v.img}
+              alt={v.name}
+              loading="lazy"
+              decoding="async"
+              class="w-full h-full object-cover img-retro"
+            />
+            <!-- Gradient overlay with label -->
+            <div class="absolute inset-0 bg-gradient-to-t from-neb-ink/70 dark:from-neb-black/80 via-transparent to-transparent"></div>
+            <div class="absolute top-3 left-3">
+              <span class={`font-mono text-[10px] font-bold tracking-[0.3em] px-2 py-1 rounded-sm ${v.bg} ${v.border} border ${v.colorClass}`}>
+                NEB_{v.label}
+              </span>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="p-7 text-center">
+            <div class={`w-14 h-14 rounded-sm flex items-center justify-center mx-auto mb-5 ${v.bg} border ${v.border}`}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                   stroke={v.color} stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                   aria-hidden="true" set:html={v.icon} />
+            </div>
+            <h3 class={`font-makoto text-xl font-black mb-3 ${v.colorClass} tracking-widest`}>{v.name}</h3>
+            <p class="text-neb-ink/60 dark:text-white/60 text-sm leading-relaxed">{v.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

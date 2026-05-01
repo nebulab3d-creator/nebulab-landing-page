@@ -1,0 +1,117 @@
+---
+const galleryImages = [
+  { src: '/images/B2B/b2b-03.jpg',         alt: 'Proyecto B2B personalizado' },
+  { src: '/images/B2B/b2b-05.jpg',         alt: 'Pieza corporativa a medida' },
+  { src: '/images/B2B/b2b-07.jpg',         alt: 'Diseño 3D empresarial' },
+  { src: '/images/regalos-corporativos/corporativo-03.jpg', alt: 'Regalo corporativo premium' },
+];
+---
+
+<section id="nosotros" class="py-24 px-6 relative overflow-hidden">
+
+  <!-- Glow accent -->
+  <div aria-hidden="true"
+       class="glow-purple absolute top-1/2 -translate-y-1/2 -right-40 w-[500px] h-[500px] rounded-full opacity-15 dark:opacity-25 pointer-events-none"></div>
+
+  <div class="max-w-6xl mx-auto">
+
+    <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+      <!-- ── Left: image mosaic ── -->
+      <div class="reveal">
+        <div class="grid grid-cols-2 gap-3">
+          {galleryImages.map((img, i) => (
+            <div class={`relative overflow-hidden rounded-sm group ${i === 0 ? 'col-span-2' : ''}`}>
+              <!-- Retro corners -->
+              <div class="absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 border-neb-purple/70 z-10 pointer-events-none"></div>
+              <div class="absolute bottom-2 right-2 w-4 h-4 border-b-2 border-r-2 border-neb-blue/70 z-10 pointer-events-none"></div>
+              <img
+                src={img.src}
+                alt={img.alt}
+                loading="lazy"
+                decoding="async"
+                class={`w-full object-cover img-retro ${i === 0 ? 'h-56' : 'h-36'}`}
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-neb-purple/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Retro stats strip -->
+        <div class="mt-4 grid grid-cols-3 gap-2">
+          {[
+            { num: '4+', label: 'Impresoras' },
+            { num: '100%', label: 'Personalizados' },
+            { num: '2', label: 'Ciudades' },
+          ].map(stat => (
+            <div class="border border-neb-purple/20 dark:border-neb-purple/30
+                        bg-neb-purple/5 dark:bg-neb-purple/10
+                        p-3 text-center pixel-corner">
+              <div class="font-makoto text-2xl font-black text-neb-purple dark:text-purple-400">{stat.num}</div>
+              <div class="font-mono text-[9px] tracking-widest uppercase text-neb-ink/50 dark:text-white/40 mt-0.5">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- ── Right: story text ── -->
+      <div class="reveal">
+        <span class="badge mb-4 inline-block">Cómo empezamos</span>
+        <h2 class="font-makoto text-4xl md:text-5xl font-black mb-6 leading-tight text-neb-ink dark:text-white">
+          NUESTRA<br/>
+          <span class="text-gradient">HISTORIA</span>
+        </h2>
+        <div class="divider mb-6"></div>
+
+        <div class="space-y-4 text-neb-ink/65 dark:text-white/65 leading-relaxed">
+          <p>
+            Todo comenzó con una conversación entre amigos. Buscábamos formas de generar ingresos adicionales, pero ninguna opción nos convencía del todo. Fue entonces cuando llamamos a un tercer amigo con otra perspectiva.
+          </p>
+          <p>
+            Él nos habló sobre la impresión 3D y empezamos a imaginar todo lo que se podía crear con esa tecnología. La idea de ofrecer productos personalizados nos entusiasmó tanto que, sin pensarlo dos veces, compramos nuestras primeras cuatro máquinas.
+          </p>
+          <p>
+            Así nació este proyecto, con el entusiasmo, la creatividad y la convicción de que todo es posible cuando hay ganas y buena compañía.
+          </p>
+        </div>
+
+        <!-- Mission/Vision cards -->
+        <div class="mt-8 flex flex-col gap-3">
+          <div class="border border-neb-purple/25 dark:border-neb-purple/30 bg-neb-purple/[0.04] dark:bg-neb-purple/10 p-4 rounded-sm pixel-corner">
+            <p class="font-mono text-[9px] font-bold tracking-[0.25em] uppercase text-neb-purple mb-1.5">// VISIÓN</p>
+            <p class="text-sm font-semibold text-neb-ink dark:text-white leading-snug">
+              Convertirnos en la principal referencia de productos personalizados con impresión 3D en Colombia.
+            </p>
+          </div>
+          <div class="border border-neb-blue/25 dark:border-neb-blue/30 bg-neb-blue/[0.04] dark:bg-neb-blue/10 p-4 rounded-sm pixel-corner">
+            <p class="font-mono text-[9px] font-bold tracking-[0.25em] uppercase text-neb-blue mb-1.5">// MISIÓN</p>
+            <p class="text-sm font-semibold text-neb-ink dark:text-white leading-snug">
+              Proveer soluciones personalizadas con impresión 3D, enfocados en calidad y en la satisfacción de cada cliente.
+            </p>
+          </div>
+
+          <!-- Locations -->
+          <div class="border border-white/10 dark:border-white/8 bg-neb-ink/[0.03] dark:bg-white/[0.02] p-4 rounded-sm">
+            <p class="font-mono text-[9px] font-bold tracking-[0.25em] uppercase text-neb-ink/35 dark:text-white/30 mb-3">// UBICACIONES</p>
+            <div class="flex flex-col gap-2">
+              {[
+                { city: 'Manizales, Caldas',       color: '#8446c2' },
+                { city: 'Madrid, Cundinamarca',     color: '#5564ef' },
+              ].map(loc => (
+                <div class="flex items-center gap-2">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                       stroke={loc.color} stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                  </svg>
+                  <span class="text-sm font-medium text-neb-ink/80 dark:text-white/80">{loc.city}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
